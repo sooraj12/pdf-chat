@@ -78,4 +78,4 @@ async def get_history(id: str = Query(..., alias="id")):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app=server, host="0.0.0.0", port=8080)
+    uvicorn.run(app=server, host="0.0.0.0", port=8086)

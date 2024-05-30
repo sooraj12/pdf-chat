@@ -19,4 +19,4 @@ add_routes(app=server, path="/chat", runnable=rag.with_types(input_type=Input))
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app=server, host="localhost", port=8080)
+    uvicorn.run(app=server, host="localhost", port=8086)

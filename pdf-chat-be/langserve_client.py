@@ -11,7 +11,7 @@ if len(args) != 1:
 question = args[0]
 print(question)
 
-remote_chain = RemoteRunnable("http://localhost:8080/chat/")
+remote_chain = RemoteRunnable("http://localhost:8086/chat/")
 
 inputs = {"question": question}
 

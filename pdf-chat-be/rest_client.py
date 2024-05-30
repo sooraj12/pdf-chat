@@ -17,7 +17,7 @@ async def make_api_call():
         data = {"input": {"question": question}}
         async with aiohttp.ClientSession() as session:
             async with session.post(
-                "http://localhost:8080/chat/stream", json=data
+                "http://localhost:8086/chat/stream", json=data
             ) as response:
                 print(await response.text())
     except Exception as e:

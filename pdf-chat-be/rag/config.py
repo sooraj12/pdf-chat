@@ -10,7 +10,7 @@ hallucination_grader = "llama3-70b-8192"
 embedding_model_name = "nomic-embed-text"
 ans_generator_llm = "llama3-70b-8192"
 
-llm_host = "0.0.0.0:11434"
+llm_host = "ollama:11434"
 base_url = f"http://{llm_host}"
 
 

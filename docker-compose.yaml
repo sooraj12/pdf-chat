@@ -9,7 +9,9 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports:
-      - "8086:8080"
+      - "8086:8086"
+    networks:
+      - chat_network
     depends_on:
       - db
 
@@ -24,6 +26,8 @@ services:
       - "8085:80"
     volumes:
       - ./configs:/etc/nginx/conf.d
+    networks:
+      - chat_network
     depends_on:
       - backend
 
@@ -38,4 +42,8 @@ services:
 
 volumes:
   pdf-chat-mongo-data:
+    external: true
+
+networks:
+  chat_network:
     external: true

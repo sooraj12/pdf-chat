@@ -95,7 +95,7 @@ const chatsStore = (set, get) => ({
     async getReply(msg, replyId, chatId) {
       try {
         const { data } = await axios({
-          baseURL: "http://localhost:8080/api/generate",
+          baseURL: "http://localhost:8086/api/generate",
           method: "POST",
           data: {
             question: msg,
@@ -130,7 +130,7 @@ const chatsStore = (set, get) => ({
     async fetchChatTitles() {
       try {
         const { data } = await axios({
-          baseURL: "http://localhost:8080/api/titles",
+          baseURL: "http://localhost:8086/api/titles",
           method: "GET",
         });
 
@@ -164,7 +164,7 @@ const chatsStore = (set, get) => ({
 
       try {
         const { data } = await axios({
-          baseURL: "http://localhost:8080/api/history",
+          baseURL: "http://localhost:8086/api/history",
           method: "GET",
           params: {
             id,
