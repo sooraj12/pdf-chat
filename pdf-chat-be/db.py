@@ -4,7 +4,7 @@ from bson import ObjectId
 
 def get_mongo_client():
     try:
-        client = MongoClient("mongodb://localhost:27017")
+        client = MongoClient("mongodb://db:27017")
         return client
     except errors.ConnectionFailure as e:
         print("Failed to connect to MongoDB server: %s", e)
