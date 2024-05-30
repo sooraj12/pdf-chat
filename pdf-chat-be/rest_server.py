@@ -36,7 +36,7 @@ class Data(BaseModel):
 #         yield "data: " + event.content + "\n\n"
 
 
-@server.post("/api/generate")
+@server.post("/pdf/generate")
 async def chat(data: Data):
     id = data.id
     question = data.question
@@ -64,12 +64,12 @@ async def chat(data: Data):
     return chat
 
 
-@server.get("/api/titles")
+@server.get("/pdf/titles")
 async def get_titles():
     return get_chat_titles()
 
 
-@server.get("/api/history")
+@server.get("/pdf/history")
 async def get_history(id: str = Query(..., alias="id")):
     print(id)
     return get_chat_history(id)
