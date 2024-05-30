@@ -12,8 +12,8 @@ from langgraph.graph import StateGraph, END
 from rag.generate import rag_chain
 from rag.prompts import question_rewriter_prompt
 from rag.config import rewriter_llm_name, base_url
-# from langchain_groq import ChatGroq
-from langchain_community.chat_models import ChatOllama
+from langchain_groq import ChatGroq
+# from langchain_community.chat_models import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
 
 
@@ -28,8 +28,8 @@ def get_file_path(file_name):
 # load documents
 docs = [
     get_file_path("Tech_Manual_partII_INS_SAMC.pdf"),
-    # get_file_path("Updated-44738622-V1-MPS_TECHNICAL_MANUAL.pdf")
-    # get_file_path("BNET_SDR.pdf")
+    get_file_path("Updated-44738622-V1-MPS_TECHNICAL_MANUAL.pdf"),
+    get_file_path("BNET_SDR.pdf")
 ]
 doc_splits = load_unstructured_pdf(docs)
 
@@ -39,8 +39,12 @@ retriever = setup_retriever(doc_splits)
 ## retrieval grader
 retrieval_grader = setup_retriever_grader()
 
-rewriter_llm = ChatOllama(base_url=base_url, model=rewriter_llm_name, temperature=0)
-# rewriter_llm = ChatGroq(model=rewriter_llm_name, temperature=0)
+# rewriter_llm = ChatOllama(base_url=base_url, model=rewriter_llm_name, temperature=0)
+rewriter_llm = ChatGroq(
+    model=rewriter_llm_name, 
+    temperature=0,
+    groq_api_key= "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"
+)
 
 question_rewriter = question_rewriter_prompt | rewriter_llm | StrOutputParser()
 

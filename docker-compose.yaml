@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: pdf_chat_backend
+    image: pdf_chat/backend
+    build: 
+      context: ./pdf-chat-be
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "8086:8080"
+    depends_on:
+      - db
+
+  frontend:
+    container_name: pdf_chat_frontend
+    image: pdf_chat/frontend
+    build: 
+      context: ./pdf-chat-ui
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "8085:80"
+    volumes:
+      - ./configs:/etc/nginx/conf.d
+    depends_on:
+      - backend
+
+  db:
+    image: mongo:latest
+    container_name: pdf_chat_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - pdf-chat-mongo-data:/data/db
+
+volumes:
+  pdf-chat-mongo-data:
+    external: true
