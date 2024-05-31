@@ -71,7 +71,6 @@ async def get_titles():
 
 @server.get("/pdf/history")
 async def get_history(id: str = Query(..., alias="id")):
-    print(id)
     return get_chat_history(id)
 
 
