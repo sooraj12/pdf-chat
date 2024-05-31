@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
-from langchain.pydantic_v1 import BaseModel
+from pydantic import BaseModel
 from rag.rag import rag
 from db import insert_or_update_chat, get_chat_titles, get_chat_history
 
