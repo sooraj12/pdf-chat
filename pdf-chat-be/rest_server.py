@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
 from langchain.pydantic_v1 import BaseModel
 from rag.rag import rag
@@ -37,7 +37,7 @@ class Data(BaseModel):
 
 
 @server.post("/pdf/generate")
-async def chat(data: Data):
+async def chat(data: Data = Body(...)):
     id = data.id
     question = data.question
 
