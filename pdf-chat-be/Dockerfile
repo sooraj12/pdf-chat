@@ -1,4 +1,4 @@
-FROM python:3.11 AS builder
+FROM python:3.11-bookworm AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt \
     && pip install opencv-python-headless
 
-FROM python:3.11
+FROM python:3.11-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
