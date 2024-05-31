@@ -1,10 +1,10 @@
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
     container_name: pdf_chat_backend
     image: pdf_chat/backend
-    build: 
+    build:
       context: ./pdf-chat-be
       dockerfile: ./Dockerfile
     restart: always
@@ -18,7 +18,7 @@ services:
   frontend:
     container_name: pdf_chat_frontend
     image: pdf_chat/frontend
-    build: 
+    build:
       context: ./pdf-chat-ui
       dockerfile: ./Dockerfile
     restart: always
@@ -28,8 +28,6 @@ services:
       - ./configs:/etc/nginx/conf.d
     networks:
       - chat_network
-    depends_on:
-      - backend
 
   db:
     image: mongo:latest
