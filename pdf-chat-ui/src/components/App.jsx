@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     path: "/chat/:id",
     element: <ChatPage />,
   },
-], {basename: "/pdfchat"});
+]);
 
 function App() {
   const { fetchChatTitles } = useGlobalStore(
