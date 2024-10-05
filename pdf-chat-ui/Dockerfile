@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM nginx:1.25.5-alpine
 
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html/pdfchat
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
 EXPOSE 80
 
