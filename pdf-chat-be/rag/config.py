@@ -4,11 +4,11 @@
 # embedding_model_name = "nomic-embed-text"
 # ans_generator_llm = "llama3-70b-8192"
 
-retriever_grader_llm_name = "llama3-8b-8192"
-rewriter_llm_name = "llama3-70b-8192"
-hallucination_grader = "llama3-70b-8192"
+# retriever_grader_llm_name = "llama3.1:8b-instruct-q8_0"
+# rewriter_llm_name = "llama3-70b-8192"
+# hallucination_grader = "llama3-70b-8192"
 embedding_model_name = "nomic-embed-text"
-ans_generator_llm = "llama3-70b-8192"
+ans_generator_llm = "llama3.1:8b-instruct-q8_0"
 
 llm_host = "ollama:11434"
 base_url = f"http://{llm_host}"

@@ -34,14 +34,34 @@ services:
     container_name: pdf_chat_db
     restart: always
     ports:
-      - "27017:27017"
+      - "27018:27017"
     networks:
       - chat_network
     volumes:
       - pdf-chat-mongo-data:/data/db
 
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu] # Enable GPU support
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+    restart: unless-stopped
+    networks:
+      - chat_network
+
 volumes:
   pdf-chat-mongo-data:
+    external: true
+  ollama:
     external: true
 
 networks:
